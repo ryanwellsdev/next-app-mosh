@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import localFont from 'next/font/local'
 import Navbar from './Navbar'
+import AuthProvider from './auth/Provider'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -24,10 +25,12 @@ export default function RootLayout({
   return (
     <html lang="en" data-them="winter" >
       <body className={poppins.variable}>
-        <Navbar />
-        <main className='p-5'>
-          {children}
-        </main>
+        <AuthProvider>
+          <Navbar />
+          <main className='p-5'>
+            {children}
+          </main>
+        </AuthProvider>
       </body>
     </html>
   )
