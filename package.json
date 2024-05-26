@@ -17,7 +17,9 @@
     "eslint": "8.57.0",
     "eslint-config-next": "14.2.3",
     "fast-sort": "^3.4.0",
+    "lodash": "^4.17.21",
     "next": "14.2.3",
+    "next-auth": "^4.24.7",
     "next-cloudinary": "^6.6.2",
     "postcss": "8.4.38",
     "prisma": "^5.14.0",
@@ -28,6 +30,7 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@types/lodash": "^4.17.4",
     "daisyui": "^4.11.1"
   }
 }
