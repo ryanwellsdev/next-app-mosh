@@ -23,6 +23,10 @@ const UserTable = async ({ sortOrder }: Props) => {
             ? (user) => user.email
             : (user) => user.name)
 
+    if (!Array.isArray(sortedUsers)) {
+        return null;
+    }
+
     return (
         <table className='table table-bordered'>
             <thead>
