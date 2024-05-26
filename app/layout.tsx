@@ -1,9 +1,15 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import localFont from 'next/font/local'
 import Navbar from './Navbar'
 
 const inter = Inter({ subsets: ['latin'] })
+
+const poppins = localFont({
+  src: '../public/fonts/poppins-regular-webfont.woff2',
+  variable: '--font-poppins'
+})
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -17,7 +23,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" data-them="winter" >
-      <body className={inter.className}>
+      <body className={poppins.variable}>
         <Navbar />
         <main className='p-5'>
           {children}
