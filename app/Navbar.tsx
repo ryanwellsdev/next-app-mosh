@@ -1,5 +1,5 @@
 'use client'
-import { useSession } from 'next-auth/react'
+import { useSession, signOut, signIn } from 'next-auth/react'
 import Link from 'next/link'
 import React from 'react'
 
@@ -11,12 +11,17 @@ const Navbar = () => {
             <Link href="/" className='mr-5'>Next.js</Link>
             <Link href="/users">Users</Link>
             {status === 'loading' && <div>Loading...</div>}
-            {status === 'authenticated' && <div>{session.user!.name}
-                <Link href="/api/auth/signout" className='ml-3'>Sign Out</Link>
-            </div>}
-            {status === 'unauthenticated' && <Link href="/api/auth/signin">Login</Link>}
+            {status === 'authenticated' && (
+                <div>
+                    {session?.user?.name}
+                    <button onClick={() => signOut()} className='ml-3'>Sign Out</button>
+                </div>
+            )}
+            {status === 'unauthenticated' && (
+                <button onClick={() => signIn()} className='ml-3'>Login</button>
+            )}
         </div>
     )
 }
 
-export default Navbar 
+export default Navbar
